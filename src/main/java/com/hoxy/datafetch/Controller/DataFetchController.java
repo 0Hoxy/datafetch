@@ -1,5 +1,11 @@
 package com.hoxy.datafetch.Controller;
 
+import com.hoxy.datafetch.entity.album.Album;
+import com.hoxy.datafetch.entity.comment.Comment;
+import com.hoxy.datafetch.entity.photo.Photo;
+import com.hoxy.datafetch.entity.post.Post;
+import com.hoxy.datafetch.entity.todo.Todo;
+import com.hoxy.datafetch.entity.user.User;
 import com.hoxy.datafetch.service.DataFetchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,76 +28,63 @@ public class DataFetchController {
     }
 
     @GetMapping("/posts")
-    public ResponseEntity<Flux<String>> getPosts() {
-        Flux<String> posts = dataFetchService.getPosts();
-        return ResponseEntity.ok(posts);
+    public Flux<Post> getPosts() {
+        return dataFetchService.getPosts();  // Flux<Post> 반환
     }
 
     @GetMapping("/posts/{id}")
-    public ResponseEntity<Mono<String>> getPost(@PathVariable String id) {
-        Mono<String> post = dataFetchService.getPost(id);
-        return ResponseEntity.ok(post);
-
+    public Mono<Post> getPost(@PathVariable String id) {
+        return dataFetchService.getPost(id);  // Mono<Post> 반환
     }
 
     @GetMapping("/comments")
-    public ResponseEntity<Flux<String>> getComments() {
-        Flux<String> comments = dataFetchService.getComments();
-        return ResponseEntity.ok(comments);
+    public Flux<Comment> getComments() {
+        return dataFetchService.getComments();  // Flux<String> 반환
     }
 
     @GetMapping("/comments/{id}")
-    public ResponseEntity<Mono<String>> getComment(@PathVariable String id) {
-        Mono<String> comment = dataFetchService.getComment(id);
-        return ResponseEntity.ok(comment);
+    public Mono<Comment> getComment(@PathVariable String id) {
+        return dataFetchService.getComment(id);  // Mono<String> 반환
     }
 
     @GetMapping("/albums")
-    public ResponseEntity<Flux<String>> getAlbums() {
-        Flux<String> albums = dataFetchService.getAlbums();
-        return ResponseEntity.ok(albums);
+    public Flux<Album> getAlbums() {
+        return dataFetchService.getAlbums();  // Flux<String> 반환
     }
 
     @GetMapping("/albums/{id}")
-    public ResponseEntity<Mono<String>> getAlbum(@PathVariable String id) {
-        Mono<String> album = dataFetchService.getAlbum(id);
-        return ResponseEntity.ok(album);
+    public Mono<Album> getAlbum(@PathVariable String id) {
+        return dataFetchService.getAlbum(id);  // Mono<String> 반환
     }
 
     @GetMapping("/photos")
-    public ResponseEntity<Flux<String>> getPhotos() {
-        Flux<String> photos = dataFetchService.getPhotos();
-        return ResponseEntity.ok(photos);
+    public Flux<Photo> getPhotos() {
+        return dataFetchService.getPhotos();  // Flux<String> 반환
     }
 
     @GetMapping("/photos/{id}")
-    public ResponseEntity<Mono<String>> getPhoto(@PathVariable String id) {
-        Mono<String> photo = dataFetchService.getPhoto(id);
-        return ResponseEntity.ok(photo);
+    public Mono<Photo> getPhoto(@PathVariable String id) {
+        return dataFetchService.getPhoto(id);  // Mono<String> 반환
     }
 
     @GetMapping("/todos")
-    public ResponseEntity<Flux<String>> getTodos() {
-        Flux<String> todos = dataFetchService.getTodos();
-        return ResponseEntity.ok(todos);
+    public Flux<Todo> getTodos() {
+        return dataFetchService.getTodos();  // Flux<String> 반환
     }
 
     @GetMapping("/todos/{id}")
-    public ResponseEntity<Mono<String>> getTodo(@PathVariable String id) {
-        Mono<String> todo = dataFetchService.getTodo(id);
-        return ResponseEntity.ok(todo);
+    public Mono<Todo> getTodo(@PathVariable String id) {
+        return dataFetchService.getTodo(id);  // Mono<String> 반환
     }
 
     @GetMapping("/users")
-    public ResponseEntity<Flux<String>> getUsers() {
-        Flux<String> users = dataFetchService.getUsers();
-        return ResponseEntity.ok(users);
+    public Flux<User> getUsers() {
+        return dataFetchService.getUsers();  // Flux<String> 반환
     }
 
     @GetMapping("/users/{id}")
-    public ResponseEntity<Mono<String>> getUser(@PathVariable String id) {
-        Mono<String> user = dataFetchService.getUser(id);
-        return ResponseEntity.ok(user);
+    public Mono<User> getUser(@PathVariable String id) {
+        return dataFetchService.getUser(id);  // Mono<String> 반환
     }
-
 }
+
