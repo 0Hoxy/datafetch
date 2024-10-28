@@ -1,5 +1,11 @@
 package com.hoxy.datafetch.service;
 
+import com.hoxy.datafetch.entity.album.Album;
+import com.hoxy.datafetch.entity.comment.Comment;
+import com.hoxy.datafetch.entity.photo.Photo;
+import com.hoxy.datafetch.entity.post.Post;
+import com.hoxy.datafetch.entity.todo.Todo;
+import com.hoxy.datafetch.entity.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -16,88 +22,88 @@ public class DataFetchService {
         this.webClient = webClient;
     }
 
-    public Flux<String> getPosts() {
+    public Flux<Post> getPosts() {
         return webClient.get()
                 .uri("/posts")
                 .retrieve()
-                .bodyToFlux(String.class);
+                .bodyToFlux(Post.class);
     }
 
-    public Mono<String> getPost(String id) {
+    public Mono<Post> getPost(String id) {
         return webClient.get()
                 .uri("/posts/{id}", id) //{id} 경로 변수에 id 값을 바인딩
                 .retrieve()
-                .bodyToMono(String.class);
+                .bodyToMono(Post.class);
     }
 
-    public Flux<String> getTodos() {
+    public Flux<Todo> getTodos() {
         return webClient.get()
                 .uri("/todos")
                 .retrieve()
-                .bodyToFlux(String.class);
+                .bodyToFlux(Todo.class);
     }
 
-    public Mono<String> getTodo(String id) {
+    public Mono<Todo> getTodo(String id) {
         return webClient.get()
                 .uri("/todos/{id}", id)
                 .retrieve()
-                .bodyToMono(String.class);
+                .bodyToMono(Todo.class);
     }
 
-    public Flux<String> getPhotos() {
+    public Flux<Photo> getPhotos() {
         return webClient.get()
                 .uri("/photos")
                 .retrieve()
-                .bodyToFlux(String.class);
+                .bodyToFlux(Photo.class);
     }
 
-    public Mono<String> getPhoto(String id) {
+    public Mono<Photo> getPhoto(String id) {
         return webClient.get()
                 .uri("/photos/{id}", id)
                 .retrieve()
-                .bodyToMono(String.class);
+                .bodyToMono(Photo.class);
     }
 
-    public Flux<String> getComments() {
+    public Flux<Comment> getComments() {
         return webClient.get()
                 .uri("/comments")
                 .retrieve()
-                .bodyToFlux(String.class);
+                .bodyToFlux(Comment.class);
     }
 
-    public Mono<String> getComment(String id) {
+    public Mono<Comment> getComment(String id) {
         return webClient.get()
                 .uri("/comments/{id}",id)
                 .retrieve()
-                .bodyToMono(String.class);
+                .bodyToMono(Comment.class);
     }
 
-    public Flux<String> getAlbums() {
+    public Flux<Album> getAlbums() {
         return webClient.get()
                 .uri("/albums")
                 .retrieve()
-                .bodyToFlux(String.class);
+                .bodyToFlux(Album.class);
     }
 
-    public Mono<String> getAlbum(String id) {
+    public Mono<Album> getAlbum(String id) {
         return webClient.get()
                 .uri("/albums/{id}",id)
                 .retrieve()
-                .bodyToMono(String.class);
+                .bodyToMono(Album.class);
     }
 
-    public Flux<String> getUsers() {
+    public Flux<User> getUsers() {
         return webClient.get()
                 .uri("/users")
                 .retrieve()
-                .bodyToFlux(String.class);
+                .bodyToFlux(User.class);
     }
 
-    public Mono<String> getUser(String id) {
+    public Mono<User> getUser(String id) {
         return webClient.get()
                 .uri("/users/{id}", id)
                 .retrieve()
-                .bodyToMono(String.class);
+                .bodyToMono(User.class);
     }
 
 }
